@@ -1,0 +1,15 @@
+[Unit]
+Description=T3 Code bridge for Claude Duet
+After=network-online.target
+
+[Service]
+# Assumes the repo is at ~/code/t3-duet-bridge. Use an absolute path to node if systemd cannot find it.
+ExecStart=/usr/bin/env node %h/code/t3-duet-bridge/src/cli.ts serve
+WorkingDirectory=%h/code/t3-duet-bridge
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target

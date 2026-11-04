@@ -1,0 +1,30 @@
+{
+  "name": "t3-duet-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Remote MCP server that lets Claude Duet drive T3 Code threads through a claude.ai custom connector.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "t3-duet-bridge": "./src/cli.ts"
+  },
+  "scripts": {
+    "start": "node src/cli.ts serve",
+    "setup": "node src/cli.ts setup",
+    "doctor": "node src/cli.ts doctor",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "express": "^5.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}
